@@ -3,9 +3,8 @@ const router = express.Router();
 const auth = require('../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
-const User = require('../models/User');
 const Contact = require('../models/Contact');
-
+const User = require('../models/User');
 // @route GET api/contacts
 // @desc  Get all users contacts
 // @accss  Private
@@ -17,7 +16,7 @@ router.get('/', auth, async (req, res) => {
     res.json(contacts);
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('server error');
+    res.status(500).send('Server error');
   }
 });
 // @route POST api/contacts
@@ -52,8 +51,8 @@ router.post(
       const contact = await newContact.save();
       res.json(contact);
     } catch (err) {
-      console.error(err.message);
-      res.status(500).send('server error');
+      console.error(er.message);
+      res.status(500).send('Server error');
     }
   }
 );
@@ -85,8 +84,8 @@ router.put('/:id', auth, async (req, res) => {
     );
     res.json(contact);
   } catch (err) {
-    console.error(err.message);
-    res.status(500).send('server error');
+    console.error(er.message);
+    res.status(500).send('Server error');
   }
 });
 // @route DELETE api/contacts/:id
@@ -104,7 +103,7 @@ router.delete('/:id', auth, async (req, res) => {
     res.json({ msg: 'Contact Removed' });
   } catch (err) {
     console.error(err.message);
-    res.status(500).send('server error');
+    res.status(500).send('Server error');
   }
 });
 

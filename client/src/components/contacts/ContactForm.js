@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import ContactContext from '../../context/contact/contactContext';
-import { CLEAR_CURRENT } from '../../context/types';
+// import { CLEAR_CURRENT } from '../../context/types';
 
 const ContactForm = () => {
   const contactContext = useContext(ContactContext);
@@ -17,7 +17,7 @@ const ContactForm = () => {
         type: 'personal'
       });
     }
-  }, [current]);
+  }, [contactContext, current]);
 
   const [contact, setContact] = useState({
     name: '',
